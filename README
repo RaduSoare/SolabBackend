@@ -1,0 +1,6 @@
+Used https://start.spring.io/ for creating the project structure:
+Spring : 2.6.6
+Java : 11
+Dependencies : Spring Web, MySql Driver, Spring Data JPA
+
+Install MySQL8 + MySQL workbench for visualisation
