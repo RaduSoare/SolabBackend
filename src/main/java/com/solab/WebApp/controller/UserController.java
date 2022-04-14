@@ -1,8 +1,11 @@
 package com.solab.WebApp.controller;
 
+import com.solab.WebApp.messageQueue.MessagingConfig;
+import com.solab.WebApp.model.Notification;
 import com.solab.WebApp.model.Student;
 import com.solab.WebApp.model.User;
 import com.solab.WebApp.service.UserService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +18,9 @@ import java.util.Optional;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RabbitTemplate template;
 
     @PostMapping
     public String add(@RequestBody User user) {
@@ -41,5 +47,11 @@ public class UserController {
     @GetMapping("/{id}")
     public Optional<User> getUserById(@PathVariable int id) {
         return userService.getUserById(id);
+    }
+
+    @PostMapping("/publish")
+    public String publish(@RequestBody Notification notification) {
+        template.convertAndSend(MessagingConfig.EXCHANGE, MessagingConfig.KEY, notification);
+        return "Published!";
     }
 }
