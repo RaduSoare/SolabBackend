@@ -3,7 +3,6 @@ package com.solab.WebApp.service;
 import com.solab.WebApp.model.User;
 import com.solab.WebApp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +33,12 @@ public class UserServiceImpl implements UserService {
     public Optional<User> getUserById(int id) {
         return userRepository.findById(id);
     }
+
+    @Override
+    public Optional<User> getUserByEmail(String email) {
+        return userRepository.getUserByEmail(email);
+    }
+
 
     @Override
     public List<User> getCustomUser(String name) {

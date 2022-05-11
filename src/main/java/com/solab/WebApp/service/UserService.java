@@ -11,5 +11,6 @@ public interface UserService {
     public void deleteUser(int id);
     public List<User> getAllUsers();
     public Optional<User> getUserById(int id);
+    public Optional<User> getUserByEmail(String email);
     public List<User> getCustomUser(String name);
 }

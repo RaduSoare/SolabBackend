@@ -10,12 +10,20 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int idTemplate;
     private int idVolunteer;
+    private String postName;
     private String serviceType;
-    private String otherInformation;
+    private String data;
+
 
     public Post() {
+    }
+
+    public Post(int idVolunteer, String postName, String serviceType, String data) {
+        this.idVolunteer = idVolunteer;
+        this.postName = postName;
+        this.serviceType = serviceType;
+        this.data = data;
     }
 
     public int getId() {
@@ -24,14 +32,6 @@ public class Post {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIdTemplate() {
-        return idTemplate;
-    }
-
-    public void setIdTemplate(int idTemplate) {
-        this.idTemplate = idTemplate;
     }
 
     public int getIdVolunteer() {
@@ -50,11 +50,20 @@ public class Post {
         this.serviceType = serviceType;
     }
 
-    public String getOtherInformation() {
-        return otherInformation;
+    public String getData() {
+        return data;
     }
 
-    public void setOtherInformation(String otherInformation) {
-        this.otherInformation = otherInformation;
+    public void setData(String data) {
+        this.data = data;
     }
+
+    public String getPostName() {
+        return postName;
+    }
+
+    public void setPostName(String postName) {
+        this.postName = postName;
+    }
+
 }
