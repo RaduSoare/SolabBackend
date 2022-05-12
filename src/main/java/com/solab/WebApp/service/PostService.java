@@ -10,5 +10,6 @@ public interface PostService {
     public Post addPost(Post post);
     public void deletePost(int id);
     public List<Post> getAllPosts();
+    public List<Post> getPostsByType(String type);
     public Optional<Post> getPostById(int id);
 }

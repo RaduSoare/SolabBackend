@@ -30,6 +30,11 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
+    public List<Post> getPostsByType(String type) {
+        return postRepository.getPostsByType(type);
+    }
+
+    @Override
     public Optional<Post> getPostById(int id) {
         return postRepository.findById(id);
     }

@@ -44,8 +44,13 @@ public class PostController {
         return postService.getAllPosts();
     }
 
+    @GetMapping("type/{serviceType}")
+    public List<Post> getPostsByType(@PathVariable String serviceType) {
+        return postService.getPostsByType(serviceType);
+    }
+
     @GetMapping("/{id}")
-    public Optional<Post> getUserById(@PathVariable int id) {
+    public Optional<Post> getPostById(@PathVariable int id) {
         return postService.getPostById(id);
     }
 
