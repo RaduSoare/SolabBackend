@@ -11,7 +11,8 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int postId;
-    private int applicantId;
+    private String applicantEmail;
+    private String applicantMessage;
 
     public Application() {
     }
@@ -32,11 +33,19 @@ public class Application {
         this.postId = postId;
     }
 
-    public int getApplicantId() {
-        return applicantId;
+    public String getApplicantEmail() {
+        return applicantEmail;
     }
 
-    public void setApplicantId(int applicantId) {
-        this.applicantId = applicantId;
+    public void setApplicantEmail(String applicantEmail) {
+        this.applicantEmail = applicantEmail;
+    }
+
+    public String getApplicantMessage() {
+        return applicantMessage;
+    }
+
+    public void setApplicantMessage(String applicantMessage) {
+        this.applicantMessage = applicantMessage;
     }
 }

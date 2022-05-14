@@ -9,5 +9,8 @@ public interface ApplicationService {
     public Application addApplication(Application application);
     public void deleteAllByPostId(int id);
     public List<Application> getAllByPostId(int id);
-    public List<Application> getAllPosts();
+    public List<Application> getAllApplications();
+
+
+
 }

@@ -29,7 +29,7 @@ public class ApplicationServiceImpl implements ApplicationService{
     }
 
     @Override
-    public List<Application> getAllPosts() {
+    public List<Application> getAllApplications() {
         return applicationRepository.findAll();
     }
 }

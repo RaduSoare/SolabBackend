@@ -1,7 +1,6 @@
 package com.solab.WebApp.controller;
 
 import com.solab.WebApp.model.Application;
-import com.solab.WebApp.model.User;
 import com.solab.WebApp.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +28,7 @@ public class ApplicationController {
 
     @GetMapping
     public List<Application> getAllApplications() {
-        return applicationService.getAllPosts();
+        return applicationService.getAllApplications();
     }
 
     @DeleteMapping("/{postId}")
