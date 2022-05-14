@@ -1,6 +1,7 @@
 package com.solab.WebApp.service;
 
 import com.solab.WebApp.model.Post;
+import com.solab.WebApp.model.PostFE;
 import com.solab.WebApp.model.User;
 
 import java.util.List;
@@ -12,4 +13,5 @@ public interface PostService {
     public List<Post> getAllPosts();
     public List<Post> getPostsByType(String type);
     public Optional<Post> getPostById(int id);
+    public Post createNewPost(PostFE postFE);
 }

@@ -20,14 +20,10 @@ public class PostController {
 
     @Autowired
     private PostService postService;
-    @Autowired
-    private UserService userService;
 
     @PostMapping
     public ResponseEntity<Post> add(@RequestBody PostFE postFE) {
-        System.out.println(postFE.getUserEmail());
-        User user = userService.getUserByEmail(postFE.getUserEmail()).get();
-        Post newPost = postService.addPost(new Post(user.getId(), postFE.getPostName(), postFE.getType(), postFE.getData()));
+        Post newPost = postService.createNewPost(postFE);
         return new ResponseEntity<>(newPost, HttpStatus.CREATED);
     }
 
@@ -35,7 +31,6 @@ public class PostController {
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable int id) {
         postService.deletePost(id);
-
         return new ResponseEntity(HttpStatus.OK);
     }
 
