@@ -1,7 +1,10 @@
 package com.solab.WebApp.controller;
 
+import com.solab.WebApp.messageQueue.MessagingConfig;
 import com.solab.WebApp.model.Application;
+import com.solab.WebApp.model.Notification;
 import com.solab.WebApp.service.ApplicationService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,11 +18,16 @@ public class ApplicationController {
     @Autowired
     private ApplicationService applicationService;
 
+
+
     @PostMapping
     public String add(@RequestBody Application application) {
         applicationService.addApplication(application);
-        return "New application is added";
+        System.out.println("New application is added");
+        applicationService.publishApplication(application);
+        return "New application is published";
     }
+
 
     @GetMapping("/{postId}")
     public List<Application> getAllByPostId(@PathVariable int postId) {

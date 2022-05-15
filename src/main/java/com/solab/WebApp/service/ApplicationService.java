@@ -10,6 +10,7 @@ public interface ApplicationService {
     public void deleteAllByPostId(int id);
     public List<Application> getAllByPostId(int id);
     public List<Application> getAllApplications();
+    public void publishApplication(Application application);
 
 
 
