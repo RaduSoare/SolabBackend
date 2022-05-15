@@ -47,7 +47,7 @@ public class PostServiceImpl implements PostService{
     @Override
     public Post createNewPost(PostFE postFE) {
         User user = userService.getUserByEmail(postFE.getUserEmail()).get();
-        Post newPost = new Post(user.getId(), postFE.getPostName(), postFE.getType(), postFE.getData());
+        Post newPost = addPost(new Post(user.getId(), postFE.getPostName(), postFE.getType(), postFE.getData()));
         return newPost;
     }
 }
