@@ -12,4 +12,10 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 
     @Query("select p from Post p where serviceType=?1")
     List<Post> getPostsByType(String type);
+
+    @Query("select p from Post p where serviceType=?1 and idVolunteer=?2")
+    List<Post> getUsersPostByType(String type, int id);
+
+    @Query("select p from Post p where idVolunteer=?1")
+    List<Post> getUsersPost(int id);
 }

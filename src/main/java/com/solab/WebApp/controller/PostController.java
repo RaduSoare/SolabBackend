@@ -44,6 +44,16 @@ public class PostController {
         return postService.getPostsByType(serviceType);
     }
 
+    @GetMapping("{serviceType}/{userEmail}")
+    public List<Post> getUsersPostByType(@PathVariable String serviceType, @PathVariable String userEmail) {
+        return postService.getUsersPostByType(serviceType, userEmail);
+    }
+
+    @GetMapping("/all/{userEmail}")
+    public List<Post> getUsersPost(@PathVariable String userEmail) {
+        return postService.getUsersPost(userEmail);
+    }
+
     @GetMapping("/{id}")
     public Optional<Post> getPostById(@PathVariable int id) {
         return postService.getPostById(id);
