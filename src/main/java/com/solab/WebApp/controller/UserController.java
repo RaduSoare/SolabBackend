@@ -7,8 +7,10 @@ import com.solab.WebApp.model.User;
 import com.solab.WebApp.service.UserService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,8 +26,14 @@ public class UserController {
 
     @PostMapping
     public String add(@RequestBody User user) {
-        userService.addUser(user);
-        return "New user is added";
+        try {
+            User userAdded = userService.addUser(user);
+            return "New user is added";
+        } catch (DataIntegrityViolationException exception) {
+            return "Nasol";
+        }
+
+
     }
 
     @DeleteMapping("/{id}")
