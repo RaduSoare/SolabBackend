@@ -9,7 +9,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String role;
-    private String name;
+    private String userName;
     private String phoneNumber;
     private String email;
 
@@ -33,11 +33,11 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String userName) {
+        this.userName = userName;
     }
 
     public String getPhoneNumber() {

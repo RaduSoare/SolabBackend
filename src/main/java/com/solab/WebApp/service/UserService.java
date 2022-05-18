@@ -12,5 +12,5 @@ public interface UserService {
     public List<User> getAllUsers();
     public Optional<User> getUserById(int id);
     public Optional<User> getUserByEmail(String email);
-    public List<User> getCustomUser(String name);
+    public List<User> getCustomUser(String userName);
 }

@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public List<User> getCustomUser(String name) {
-        return userRepository.getCustomUser(name);
+    public List<User> getCustomUser(String userName) {
+        return userRepository.getCustomUser(userName);
     }
 }
