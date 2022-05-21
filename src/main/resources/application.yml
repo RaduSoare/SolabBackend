@@ -1,11 +1,8 @@
-#debug: true
-#server:
-#  port: 8080
-#auth0:
-#  audience: http://pweb-refugeehelp.com
-#spring:
-#  security:
-#    oauth2:
-#      resourceserver:
-#        jwt:
-#          issuer-uri: https://dev-xanhetoa.eu.auth0.com/
+auth0:
+  audience: http://pweb-refugeehelp.com
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-xanhetoa.eu.auth0.com/
