@@ -35,7 +35,7 @@ public class UserController {
             User userAdded = userService.addUser(user);
             return "New user is added";
         } catch (DataIntegrityViolationException exception) {
-            return "Nasol";
+            return "Duplicated email";
         }
 
     }
