@@ -33,8 +33,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         This is where we configure the security required for our endpoints and setup our app to serve as
         an OAuth2 Resource Server, using JWT validation.
         */
-        http.authorizeRequests()
+        http.csrf().disable().authorizeRequests()
                 .mvcMatchers(HttpMethod.GET,"/post").permitAll()
+                .mvcMatchers(HttpMethod.POST,"/suggestion").permitAll()
                 .mvcMatchers(HttpMethod.GET,"/post/type/{serviceType}").permitAll()
                 .mvcMatchers(HttpMethod.GET,"/post/{serviceType}/{userEmail}").authenticated()
                 .mvcMatchers(HttpMethod.POST,"/post").authenticated()
