@@ -7,13 +7,14 @@ import com.solab.WebApp.service.SuggestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value = "/suggestion")
+@RequestMapping(path="/suggestion")
 public class SuggestionController {
 
     @Autowired
@@ -32,6 +33,7 @@ public class SuggestionController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('refugee-help:admin')")
     public List<Suggestion> getAllPosts() {
         return suggestionService.getAllSuggestions();
     }

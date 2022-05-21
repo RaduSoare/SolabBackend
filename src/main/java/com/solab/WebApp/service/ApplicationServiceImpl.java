@@ -21,7 +21,6 @@ public class ApplicationServiceImpl implements ApplicationService{
 
     @Override
     public Application addApplication(Application application) {
-//      System.out.println("Utilizatorul cu emailul " + application.getApplicantEmail() + " a aplicat la postarea " + emailInfo.getPostName() + " cu mesajul " + application.getApplicantMessage());
         return applicationRepository.save(application);
     }
 
